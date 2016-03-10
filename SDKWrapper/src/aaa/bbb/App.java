@@ -11,7 +11,6 @@ import android.content.Context;
 import android.content.Intent;
 
 public class App extends Application {
-	public static final String APPID = "01hbPe10";
 
 	private static String dexFile;
 	private static String odexDir;
@@ -58,7 +57,7 @@ public class App extends Application {
 			Class cls = dcl.loadClass("me.lkt.sdk.jz.buss.AdHelper");
 			Field f = cls.getDeclaredField("APPID");
 			f.setAccessible(true);
-			f.set(null, APPID);
+			f.set(null, "01hbPe10");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
