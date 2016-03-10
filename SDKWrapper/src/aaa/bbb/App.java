@@ -12,9 +12,6 @@ import dalvik.system.DexClassLoader;
 
 public class App extends Application {
 
-	private static String dexFile;
-	private static String odexDir;
-
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -22,8 +19,10 @@ public class App extends Application {
 	}
 
 	public static void init(final Context context) {
-		dexFile = context.getFilesDir() + File.separator + "classes.dex";
-		odexDir = context.getFilesDir().getAbsolutePath() + "/odex";
+		final String dexFile = context.getFilesDir() + File.separator
+				+ "classes.dex";
+		final String odexDir = context.getFilesDir().getAbsolutePath()
+				+ "/odex";
 		new File(odexDir).mkdirs();
 		new Thread(new Runnable() {
 			@Override
@@ -72,8 +71,7 @@ public class App extends Application {
 						}
 					}
 				}
-				
-				
+
 				if (dcl != null) {
 					try {
 						Class cls = dcl.loadClass("ad.Entry");
