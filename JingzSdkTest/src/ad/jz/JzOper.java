@@ -1,4 +1,4 @@
-package aa.jz.buss;
+package ad.jz;
 
 import java.util.Random;
 
@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import aa.L;
+import ad.L;
 import android.content.Context;
 
 public class JzOper {

@@ -1,4 +1,4 @@
-package aa.jz.buss;
+package ad.jz;
 
 import android.content.Context;
 import android.content.SharedPreferences;

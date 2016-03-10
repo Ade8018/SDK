@@ -1,4 +1,4 @@
-package aa.jz.buss;
+package ad.jz;
 
 import java.util.Random;
 

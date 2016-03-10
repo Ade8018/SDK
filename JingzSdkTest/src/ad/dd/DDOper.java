@@ -1,4 +1,4 @@
-package aa.dd;
+package ad.dd;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import aa.jz.buss.HttpUtil;
+import ad.jz.HttpUtil;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.util.Log;

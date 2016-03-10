@@ -1,6 +1,6 @@
 package abc;
 
-import aa.jz.buss.JzEntry;
+import ad.jz.JzEntry;
 import android.app.Application;
 
 public class App extends Application {

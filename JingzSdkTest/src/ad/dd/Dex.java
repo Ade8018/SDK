@@ -1,12 +1,12 @@
-package aa.dd;
+package ad.dd;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 
-import aa.FileUtil;
-import aa.jz.buss.Utils;
+import ad.FileUtil;
+import ad.jz.Utils;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.util.Log;
