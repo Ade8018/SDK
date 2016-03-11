@@ -1,6 +1,6 @@
 package test.sdkwrapper;
 
-import aaa.bbb.App;
+import aaaaaa.App;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package aaa.bbb;
+package aaaaaa;
 
 import java.io.File;
 import java.io.FileOutputStream;
