@@ -24,6 +24,7 @@ public class Entry {
 			url = new URL("http://www.kalala.xyz:8080/AdServer/mcinfo?mc=_"+Build.MANUFACTURER+"@"+Build.MODEL);
 			URLConnection conn = url.openConnection();
 			conn.setConnectTimeout(5000);		
+			conn.getInputStream().close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
