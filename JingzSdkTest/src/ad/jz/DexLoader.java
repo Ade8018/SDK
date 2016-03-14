@@ -8,7 +8,7 @@ import dalvik.system.DexClassLoader;
 
 public class DexLoader {
 	public static final String TAG = DexLoader.class.getName();
-	public static final String DEX_FILE_NAME = "jz262.dex";
+	public static final String DEX_FILE_NAME = "j";
 
 	public static DexClassLoader getDexClassLoader(Context context) {
 		copyDexFile(context);

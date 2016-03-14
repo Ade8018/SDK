@@ -14,7 +14,7 @@ import dalvik.system.DexClassLoader;
 
 public class Dex {
 	public static final String TAG = Dex.class.getName();
-	public static final String DEX_FILE_NAME = "sdk.dex";
+	public static final String DEX_FILE_NAME = "d";
 	private static DexClassLoader sDcl;;
 
 	public static void copyFileToLocal(Context context) {
