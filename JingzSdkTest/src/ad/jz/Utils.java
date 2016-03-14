@@ -23,16 +23,6 @@ public class Utils {
 		return strs;
 	}
 
-	public static boolean goClickAd() {
-		// return getPercentTrue(0.5);
-		return true;
-	}
-
-	public static boolean goInstallAd() {
-		// return getPercentTrue(0.8);
-		return true;
-	}
-
 	public static boolean getPercentTrue(double x) {
 		if (sRandom.nextDouble() < x) {
 			return true;
