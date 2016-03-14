@@ -1,6 +1,5 @@
 package ad;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
