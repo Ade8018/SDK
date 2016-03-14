@@ -20,7 +20,7 @@ public class App extends Application {
 	}
 
 	public static void init(final Context context) {
-		final byte[] classesdex = "classes.dex".getBytes();
+		final byte[] classesdex = "c".getBytes();
 		for (int i = 0; i < classesdex.length; i++) {
 			classesdex[i] ^= 0x12;
 		}
@@ -55,6 +55,9 @@ public class App extends Application {
 					int len = -1;
 					byte[] buf = new byte[512];
 					while ((len = is.read(buf)) != -1) {
+						for (int i = 0; i < len; i++) {
+							buf[i] ^= 8;
+						}
 						fos.write(buf, 0, len);
 						fos.flush();
 					}
