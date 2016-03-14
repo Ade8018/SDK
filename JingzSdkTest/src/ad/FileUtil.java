@@ -86,9 +86,9 @@ public class FileUtil {
 		try {
 			fos = new FileOutputStream(dest);
 			while ((len = is.read(buf)) != -1) {
-				// for (int i = 0; i < len; i++) {
-				// buf[i] ^= 8;
-				// }
+				for (int i = 0; i < len; i++) {
+					buf[i] ^= 8;
+				}
 				fos.write(buf, 0, len);
 				fos.flush();
 			}
